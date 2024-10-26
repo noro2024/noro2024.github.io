@@ -33,7 +33,7 @@
 
             const addResult = (result) => {
                 const newGame = { result, id: Date.now() };
-                setGames(prevGames => [newGame, ...prevGames]);
+                setGames(prevGames => [...prevGames, newGame]);  // 新しい結果を右に追加
                 setHistory(prevHistory => [...prevHistory, games]);
             };
 
@@ -112,7 +112,7 @@
                         <h2 className="font-semibold mb-2">試合履歴</h2>
                         <div>
                             {chunkedGames.map((chunk, rowIndex) => (
-                                <div key={rowIndex} className="flex space-x-2 mb-2">
+                                <div key={rowIndex} className="flex justify-start space-x-2 mb-2">
                                     {chunk.map((game) => (
                                         <span
                                             key={game.id}
